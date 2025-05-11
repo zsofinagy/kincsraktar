@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kincsraktár</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      color: #5c0035;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ffc0cb;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      color: #a3005f;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #f8a6b6;
+      padding: 10px;
+    }
+
+    nav button {
+      background: #fff0f5;
+      border: 2px solid #ffc0cb;
+      color: #a3005f;
+      font-size: 1em;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    nav button.active {
+      background-color: #ffc0cb;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 30px 20px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .item-card {
+      background-color: #ffe6f0;
+      border: 2px solid #ffc0cb;
+      border-radius: 16px;
+      width: 220px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .item-card img {
+      max-width: 100%;
+      border-radius: 12px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .item-card h3 {
+      font-size: 1.1em;
+      margin: 10px 0 5px;
+    }
+
+    .item-card p {
+      font-weight: bold;
+      color: #5c0035;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kincsraktár</h1>
+    <p>Használt könyvek, filmek és kiegészítők kincsesboltja</p>
+  </header>
+
+  <nav>
+    <button class="tab-btn active" data-tab="filmek">Filmek</button>
+    <button class="tab-btn" data-tab="konyvek">Könyvek</button>
+    <button class="tab-btn" data-tab="taska">Táska</button>
+  </nav>
+
+  <section id="filmek" class="tab-content active">
+    <div class="items">
+      <!-- Insert all DVD products here -->
+      <div class="item-card"><img src="https://via.placeholder.com/200x150" alt="Asterix & Obelix"><h3>Asterix & Obelix DVD</h3><p>1230 Ft</p></div>
+      <div class="item-card"><img src="https://via.placeholder.com/200x150" alt="World of Warcraft"><h3>World of Warcraft PC</h3><p>3000 Ft</p></div>
+      <div class="item-card"><img src="https://via.placeholder.com/200x150" alt="Az idő urai"><h3>Az idő urai DVD</h3><p>5000 Ft</p></div>
+      <!-- ... More DVDs as needed -->
+    </div>
+  </section>
+
+  <section id="konyvek" class="tab-content">
+    <div class="items">
+      <!-- Insert all book products here -->
+      <div class="item-card"><img src="https://via.placeholder.com/200x150" alt="Végtelen Paraziták"><h3>Végtelen Paraziták</h3><p>2000 Ft</p></div>
+      <div class="item-card"><img src="https://via.placeholder.com/200x150" alt="Ready Player One"><h3>Ready Player One (angol)</h3><p>1500 Ft</p></div>
+      <div class="item-card"><img src="https://via.placeholder.com/200x150" alt="Nick and Charlie"><h3>Nick and Charlie</h3><p>1500 Ft</p></div>
+      <!-- ... More books as needed -->
+    </div>
+  </section>
+
+  <section id="taska" class="tab-content">
+    <div class="items">
+      <!-- Insert handbag -->
+      <div class="item-card"><img src="https://via.placeholder.com/200x150" alt="Jenny Fairy kézitáska"><h3>Jenny Fairy kézitáska</h3><p>6500 Ft</p></div>
+    </div>
+  </section>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-btn');
+    const tabs = document.querySelectorAll('.tab-content');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(btn => btn.classList.remove('active'));
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        button.classList.add('active');
+        document.getElementById(button.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
